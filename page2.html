@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoLearner</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+</head>
+<body>
+    <div>
+        <h1 id="titleLabel"></h1>
+        <h3 id="highscore">Highscore: </h3>
+        <h2 id="score" position >Score: </h2>
+
+        <button id="returnButton" style="position: fixed; bottom: 10px; left: 10px;">Return</button>
+        <button id="muteButton" style="position: fixed; top: 10px; right: 10px;">
+            <img id="muteImage" src="sound/sound.png" alt="Sound">
+        </button>
+    </div>
+    <div id="imageContainer">
+        <img src="#" alt="Your Image" id="mainImage">
+        <input type="text" id="inputBox" placeholder="Which country?">
+    </div>
+    <script src="return.js"></script>   
+    <script src="hashMap.js"></script>
+
+    <script>
+        let land = "";
+        let modul = 0;
+        let teller = 0;
+        let hS = 0;
+        let besoekt;
+        let total = 0;
+        const correct = new Audio("sound/correct.mp3");
+        const wrong = new Audio("sound/wrong.mp3");
+        const win = new Audio("sound/win.mp3");
+
+        document.addEventListener("DOMContentLoaded", function() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const buttonPressed = urlParams.get("button");
+                let a = document.getElementById("titleLabel");
+                if (buttonPressed === "World") {
+                    showImageContainer("world");
+                    a.textContent="World";
+                }
+                else if (buttonPressed === "Europe") {
+                    showImageContainer("europe");
+                    a.textContent="Europe";
+                }
+                else if (buttonPressed === "Africa") {
+                    showImageContainer("africa");
+                    a.textContent="Africa";
+                }
+                else if (buttonPressed === "Asia") {
+                    showImageContainer("asia");
+                    a.textContent="Asia";
+                }
+                else if (buttonPressed === "America") {
+                    showImageContainer("america");
+                    a.textContent="America";
+                }
+
+            });
+
+        function updateScore(bool){
+            if(bool === true){
+                let scoreElement = document.getElementById("score");
+                scoreElement.textContent = "Score: " + teller + "/" + total;
+            } else {
+                if(teller > hS){
+                    updateHighscore();
+                }
+                teller = 0;
+                let scoreElement = document.getElementById("score");
+                scoreElement.textContent = "Score: " + teller + "/" + total;
+            }
+        }
+
+        function showCongratulationsMessage() {
+        // Create a <div> element to hold the message
+            const congratulationsDiv = document.createElement("div");
+            congratulationsDiv.className = "congratulations-message"; // You can style this class in your CSS
+
+            // Create the message text
+            const messageText = document.createElement("p");
+            messageText.textContent = "Congratulations!";
+            
+            // Append the message text to the <div>
+            congratulationsDiv.appendChild(messageText);
+            win.play();
+            // Append the <div> to the document body or any other appropriate container
+            document.body.appendChild(congratulationsDiv);
+        }
+
+
+        function updateHighscore(){
+            hS = teller-1;
+            let highscoreElement = document.getElementById("highscore");
+            highscoreElement.textContent = "Highscore: " + hS;
+        }
+
+        function showImageContainer(buttonType) {
+            if (buttonType === "world") {
+                besoekt = new Map(countryFlagMap);
+                setRandomInitialImage();
+            } else if (buttonType === "europe") {
+                modul = 1;
+                besoekt = new Map(euFlagMap);
+                setRandomInitialImageEu();
+            } else if (buttonType === "africa") {
+                modul = 2;
+                besoekt = new Map(afFlagMap);
+                setRandomInitialImageAf();
+            } else if (buttonType === "asia") {
+                modul = 3;
+                besoekt = new Map(asFlagMap);
+                setRandomInitialImageAs();  
+            } else if (buttonType === "america") {
+                modul = 4;
+                besoekt = new Map(amFlagMap);
+                setRandomInitialImageAm();  
+            }
+            total = besoekt.size;
+            document.getElementById("imageContainer").style.display = "flex";
+            document.getElementById("score").removeAttribute("hidden");
+            document.getElementById("score").textContent = "Score: " + teller + "/" + total;
+            document.getElementById("highscore").removeAttribute("hidden");
+            document.getElementById("highscore").textContent = "Highscore: " + hS;
+            document.getElementById("inputBox").focus();
+            
+        }
+
+        document.getElementById("inputBox").addEventListener("keydown", handleInput);
+    
+        // Function to handle input changes and check for expected values
+        function handleInput(event) {
+            if (event.key === "Enter") {
+
+                let expectedValue = land;
+                if (this.value.toLowerCase() === expectedValue.toLowerCase() || this.value.toLowerCase() === "x") {
+                    correct.pause();
+                    correct.currentTime = 0;
+                    correct.play();
+                    teller += 1;
+                    let randomFlag = "";
+                    let randomCountry = "";
+
+
+                    let randomPair = getRandom();
+                    randomCountry = randomPair.country;
+                    randomFlag = randomPair.flag;
+                    besoekt.delete(randomCountry);
+
+                    if(besoekt.size == 0){
+                        updateHighscore();
+                        showCongratulationsMessage();
+                        document.getElementById("imageContainer").style.display = "none";
+                        document.getElementById("titleLabel").style.display = "none";
+                        document.getElementById("score").style.display = "none";
+                        document.getElementById("highscore").style.display = "none";
+                        return;
+                    }
+
+                    land = randomCountry;
+                    // When input matches the expected value, replace the image
+                    let imageContainer = document.getElementById("imageContainer");
+                    let newImage = document.createElement("img");
+                    newImage.id = "newImage";
+                    newImage.src = randomFlag; 
+                    newImage.alt = "Another Image";
+        
+                    let newInput = document.createElement("input");
+                    newInput.type = "text";
+                    newInput.placeholder = "Which country";
+        
+                    // Clear the container and add new elements
+                    imageContainer.innerHTML = "";
+                    imageContainer.appendChild(newImage);
+                    imageContainer.appendChild(newInput);
+        
+                    newInput.focus();
+
+                    updateScore(true);
+                    newInput.addEventListener("keydown", handleInput);
+                } else {
+                    wrong.pause();
+                    wrong.currentTime = 0;
+                    wrong.play();
+                    teller += 1;
+                    let randomFlag = "";
+                    let randomCountry = "";
+
+                    let randomPair = getRandom();
+                    randomCountry = randomPair.country;
+                    randomFlag = randomPair.flag;
+                    besoekt.delete(randomCountry);
+
+                    if (modul === 0) {
+                        besoekt = new Map(countryFlagMap);
+                    } else if (modul === 1) {
+                        besoekt = new Map(euFlagMap);
+                    } else if (modul === 2) {
+                        besoekt = new Map(afFlagMap);
+                    } else if (modul === 3) {
+                        besoekt = new Map(asFlagMap);
+                    } else if (modul === 4) {
+                        besoekt = new Map(amFlagMap);
+                    }
+
+                    land = randomCountry;
+                    // When input matches the expected value, replace the image
+                    let imageContainer = document.getElementById("imageContainer");
+                    let newImage = document.createElement("img");
+                    newImage.id = "newImage";
+                    newImage.src = randomFlag; 
+                    newImage.alt = "Another Image";
+        
+                    let newInput = document.createElement("input");
+                    newInput.type = "text";
+                    newInput.placeholder = "Which country";
+        
+                    // Clear the container and add new elements
+                    imageContainer.innerHTML = "";
+                    imageContainer.appendChild(newImage);
+                    imageContainer.appendChild(newInput);
+        
+                    newInput.focus();
+                    updateScore(false);
+                    newInput.addEventListener("keydown", handleInput);
+                }
+            }
+        }
+
+        function getRandom() {
+            let keys = Array.from(besoekt.keys());
+            let randomIndex = Math.floor(Math.random() * keys.length);
+            let randomCountry = keys[randomIndex];
+            let randomFlag = besoekt.get(randomCountry);
+            return { country: randomCountry, flag: randomFlag };
+        }
+
+        function setRandomInitialImage() {
+            const imageElement = document.getElementById("mainImage");
+            const randomPair = getRandomCountryFlag(); 
+            const randomFlag = randomPair.flag;
+            const randomCountry = randomPair.country;
+            land = randomCountry;
+            imageElement.src = randomFlag;
+            besoekt.delete(randomCountry);
+    }
+        function setRandomInitialImageEu() {
+            const imageElement = document.getElementById("mainImage");
+            const randomPair = getRandomEuropeFlag(); 
+            const randomFlag = randomPair.flag;
+            const randomCountry = randomPair.country;
+            land = randomCountry;
+            imageElement.src = randomFlag;
+            besoekt.delete(randomCountry);
+    }
+        function setRandomInitialImageAf() {
+            const imageElement = document.getElementById("mainImage");
+            const randomPair = getRandomAfricanFlag(); 
+            const randomFlag = randomPair.flag;
+            const randomCountry = randomPair.country;
+            land = randomCountry;
+            imageElement.src = randomFlag;
+            besoekt.delete(randomCountry);
+    }
+        function setRandomInitialImageAs() {
+            const imageElement = document.getElementById("mainImage");
+            const randomPair = getRandomAsianFlag(); 
+            const randomFlag = randomPair.flag;
+            const randomCountry = randomPair.country;
+            land = randomCountry;
+            imageElement.src = randomFlag;
+            besoekt.delete(randomCountry);
+    }
+        function setRandomInitialImageAm() {
+            const imageElement = document.getElementById("mainImage");
+            const randomPair = getRandomAmericanFlag(); 
+            const randomFlag = randomPair.flag;
+            const randomCountry = randomPair.country;
+            land = randomCountry;
+            imageElement.src = randomFlag;
+            besoekt.delete(randomCountry);
+    }
+        const muteButton = document.getElementById("muteButton");
+
+        // Create a variable to track the mute status
+        let isMuted = false;
+
+        // Function to toggle mute status
+        function toggleMute() {
+            // Toggle mute status
+            isMuted = !isMuted;
+
+            // Mute or unmute audio elements
+            if (isMuted) {
+                correct.volume = 0;
+                wrong.volume = 0;
+                win.volume = 0;
+                muteImage.src = "sound/mute.png";
+            } else {
+                correct.volume = 1;
+                wrong.volume = 1;
+                win.volume = 1;
+                muteImage.src = "sound/sound.png";
+            }
+            muteButton.blur();
+        }
+        muteButton.addEventListener("click", toggleMute);
+        </script>
+</body>
+</html>
