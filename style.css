@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to bottom, #87CEEB, #1E90FF); /* Replace the color codes with your desired gradient colors */
+    background-image: linear-gradient(to bottom, #87CEEB, #0d83f9); /* Replace the color codes with your desired gradient colors */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -79,8 +79,11 @@ button span:nth-child(4) {
     --n: 4;
 }
 h3 {
-    font-family: 'Ariel', sans-serif;
-    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 1vw;
+    letter-spacing: 0.1em;
     position: absolute;
     top: 0;
     left: 0;
@@ -89,27 +92,35 @@ h3 {
 }
 
 h2 {
-    font-family: 'Ariel', sans-serif;
-    font-size: 18px;
-    color: #eee;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.1em;
+    font-size: 1vw; /* You can adjust the font size as needed */
     position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-}
-h1 {
-    font-family: 'Ariel', sans-serif; /* You can replace 'Arial' with your desired font family */
-    font-size: 36px;
+    top: 3%; /* Set top to 100% to place it directly below the h3 */
+    left: 0; /* Set left to 0% to align with the left edge */
+    margin: 10px; /* Adjust margin to control the distance from the h3 */
     color: #eee;
+}
+
+h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.673);
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3vw;
 }
 #muteButton {
-    position: fixed;
-    font-size: 12px;
-    font-family: 'Arial', sans-serif;
-    top: 10px;
-    right: 10px;
-    width: 50px;
-    height: 50px;
+    position: absolute;
+    top: 0; /* Adjust the top position as needed */
+    right: 0; /* Adjust the right position as needed */
+    width: 3vw; /* Adjust the width as needed */
+    height: 3vw; /* Adjust the height as needed */
     border-radius: 50%;
     background-color: lightblue;
     color: white;
@@ -118,9 +129,10 @@ h1 {
     align-items: center;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    transition: background-color 0.3s, transform 0.2s; /* Add smooth transitions */
+    box-shadow: 0 0 2vh rgba(0, 0, 0, 0.2); /* Adjust the shadow size as needed */
+    transition: background-color 0.3s, transform 0.2s;
 }
+
 
 #muteButton:hover {
     background-color: rgb(154, 190, 202); /* Darker blue on hover */
@@ -130,8 +142,8 @@ h1 {
     /* Center the image within the button and adjust its size */
     display: block;
     margin: 0 auto;
-    width: 30px; /* Adjust the width to your desired size */
-    height: 30px; /* Adjust the height to your desired size */
+    width: 3vw; /* Adjust the width to your desired size */
+    height: 3vh; /* Adjust the height to your desired size */
     border: "none";
 }
 button {
@@ -146,7 +158,7 @@ button {
     border-radius: 12px; /* Adjust the border-radius to control the roundness */
     transition: background-color 0.3s;
 }
-button:hover {
+button:hover {      
     background-color: rgba(118, 221, 255, 0.8); /* Adjust the opacity (last value) as needed */
 }
 #imageContainer {
@@ -155,26 +167,27 @@ button:hover {
     align-items: center;
     justify-content: center;
 }
-#mainImage {
-    width: 1000px;
-    height: 650px;
-    border: 2px solid white;
-    border-radius: 10px;
-}
-#newImage {
-    width: 1000px;
-    height: 650px;
-    border: 2px solid white;
+#mainImage, #newImage {
+    width: 60vw; /* 50% of the viewport width */
+    height: 65vh; /* 50% of the viewport height */
+    max-width: 100%; /* Maintain aspect ratio */
+    max-height: 100%; /* Maintain aspect ratio */
+    display: block; /* Make sure the image is a block element */
+    margin: auto; /* Center the image horizontally */
+    border: 2px solid rgba(255, 255, 255, 0.537);
     border-radius: 10px;
 }
 
+
 input[type="text"] {
     padding: 10px;
-    font-size: 18px;
+    font-size: 1vw;
     border: 2px solid lightblue;
     border-radius: 5px;
-    width: 80%;
-    max-width: 300px;
+    width: 15vw;
+    height: 1vh;
+    max-width: 100%;
+    max-height: 100%;
     margin: 10px;
     outline: none; /* Remove the default input outline */
     border-color: #1E90FF; /* Change border color when focused */
@@ -182,12 +195,12 @@ input[type="text"] {
 }
 #returnButton {
     background-color: #1e8fff00; /* Green background color */
-    color: white; /* Text color */
+    color: rgba(255, 255, 255, 0.651); /* Text color */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1vw;
 }
 
 /* Hover effect for the button */
