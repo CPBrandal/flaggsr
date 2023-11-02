@@ -51,7 +51,7 @@ const countryFlagMap = new Map([
     ["Djibouti", "w2560/dj.png"],
     ["Dominica", "w2560/dm.png"],
     ["Dominican Republic", "w2560/do.png"],
-    ["East Timor (Timor-Leste)", ""],
+    ["East Timor (Timor-Leste)", "w2560/tl.png"],
     ["Ecuador", "w2560/ec.png"],
     ["Egypt", "w2560/eg.png"],
     ["El Salvador", "w2560/sv.png"],
