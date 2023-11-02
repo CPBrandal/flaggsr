@@ -41,25 +41,41 @@
                 const buttonPressed = urlParams.get("button");
                 let a = document.getElementById("titleLabel");
                 if (buttonPressed === "World") {
-                    showImageContainer("world");
+                    besoekt = new Map(countryFlagMap);
+                    setRandomInitialImage();
                     a.textContent="World";
                 }
                 else if (buttonPressed === "Europe") {
-                    showImageContainer("europe");
+                    modul = 1;
+                    besoekt = new Map(euFlagMap);
+                    setRandomInitialImageEu();
                     a.textContent="Europe";
                 }
                 else if (buttonPressed === "Africa") {
-                    showImageContainer("africa");
+                    modul = 2;
+                    besoekt = new Map(afFlagMap);
+                    setRandomInitialImageAf();
                     a.textContent="Africa";
                 }
                 else if (buttonPressed === "Asia") {
-                    showImageContainer("asia");
+                    modul = 3;
+                    besoekt = new Map(asFlagMap);
+                    setRandomInitialImageAs(); 
                     a.textContent="Asia";
                 }
                 else if (buttonPressed === "America") {
-                    showImageContainer("america");
-                    a.textContent="America";
+                    modul = 4;
+                    besoekt = new Map(amFlagMap);
+                    setRandomInitialImageAm();
                 }
+
+            total = besoekt.size;
+            document.getElementById("imageContainer").style.display = "flex";
+            document.getElementById("score").removeAttribute("hidden");
+            document.getElementById("score").textContent = "Score: " + teller + "/" + total;
+            document.getElementById("highscore").removeAttribute("hidden");
+            document.getElementById("highscore").textContent = "Highscore: " + hS;
+            document.getElementById("inputBox").focus();
 
             });
 
@@ -98,37 +114,6 @@
             hS = teller-1;
             let highscoreElement = document.getElementById("highscore");
             highscoreElement.textContent = "Highscore: " + hS;
-        }
-
-        function showImageContainer(buttonType) {
-            if (buttonType === "world") {
-                besoekt = new Map(countryFlagMap);
-                setRandomInitialImage();
-            } else if (buttonType === "europe") {
-                modul = 1;
-                besoekt = new Map(euFlagMap);
-                setRandomInitialImageEu();
-            } else if (buttonType === "africa") {
-                modul = 2;
-                besoekt = new Map(afFlagMap);
-                setRandomInitialImageAf();
-            } else if (buttonType === "asia") {
-                modul = 3;
-                besoekt = new Map(asFlagMap);
-                setRandomInitialImageAs();  
-            } else if (buttonType === "america") {
-                modul = 4;
-                besoekt = new Map(amFlagMap);
-                setRandomInitialImageAm();  
-            }
-            total = besoekt.size;
-            document.getElementById("imageContainer").style.display = "flex";
-            document.getElementById("score").removeAttribute("hidden");
-            document.getElementById("score").textContent = "Score: " + teller + "/" + total;
-            document.getElementById("highscore").removeAttribute("hidden");
-            document.getElementById("highscore").textContent = "Highscore: " + hS;
-            document.getElementById("inputBox").focus();
-            
         }
 
         document.getElementById("inputBox").addEventListener("keydown", handleInput);
