@@ -123,7 +123,7 @@
             if (event.key === "Enter") {
 
                 let expectedValue = land;
-                if (this.value.toLowerCase() === expectedValue.toLowerCase() || this.value.toLowerCase() === "x") {
+                if (this.value.toLowerCase() === expectedValue.toLowerCase() || this.value.toLowerCase() === "idontknow") {
                     correct.pause();
                     correct.currentTime = 0;
                     correct.play();
@@ -172,7 +172,6 @@
                     wrong.pause();
                     wrong.currentTime = 0;
                     wrong.play();
-                    teller += 1;
                     let randomFlag = "";
                     let randomCountry = "";
 
