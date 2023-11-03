@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <title>Flaggsr</title>
     <link rel="stylesheet" href="style.css"></link>
 </head>
 <body>
     <div>
         <h1 id="titleLabel"></h1>
-        <h3 id="highscore">Highscore: </h3>
-        <h2 id="score" position >Score: </h2>
+        <h3 id="score" position >Score: </h3>
 
         <button id="returnButton" style="position: fixed; bottom: 10px; left: 10px;">Return</button>
         <button id="muteButton">
@@ -20,7 +19,6 @@
     <div id="imageContainer">
         <img src="#" alt="Your Image" id="mainImage">
         <input type="text" id="inputBox" placeholder="Which country?">
-    </div>
     <script src="return.js"></script>   
     <script src="hashMap.js"></script>
 
@@ -35,10 +33,19 @@
         const wrong = new Audio("sound/wrong.mp3");
         const win = new Audio("sound/win.mp3");
 
+        setTimeout(() => window.scrollTo(0, 100));
         document.addEventListener("DOMContentLoaded", function() {
                 const urlParams = new URLSearchParams(window.location.search);
                 const buttonPressed = urlParams.get("button");
                 let a = document.getElementById("titleLabel");
+
+                let inp = document.getElementById("inputBox");
+                setTimeout(() => window.scrollTo(0, 100));
+                inp.addEventListener("focus", () => {
+                inp.style.opacity = 0;
+                setTimeout(() => inp.style.opacity = 1);
+                });
+
                 if (buttonPressed === "World") {
                     besoekt = new Map(countryFlagMap);
                     setRandomInitialImage();
@@ -67,15 +74,12 @@
                     besoekt = new Map(amFlagMap);
                     setRandomInitialImageAm();
                     a.textContent="America";
-
                 }
 
             total = besoekt.size;
             document.getElementById("imageContainer").style.display = "flex";
             document.getElementById("score").removeAttribute("hidden");
             document.getElementById("score").textContent = "Score: " + teller + "/" + total;
-            document.getElementById("highscore").removeAttribute("hidden");
-            document.getElementById("highscore").textContent = "Highscore: " + hS;
             document.getElementById("inputBox").focus();
 
             });
@@ -85,15 +89,11 @@
                 let scoreElement = document.getElementById("score");
                 scoreElement.textContent = "Score: " + teller + "/" + total;
             } else {
-                if(teller > hS){
-                    updateHighscore();
-                }
                 teller = 0;
                 let scoreElement = document.getElementById("score");
                 scoreElement.textContent = "Score: " + teller + "/" + total;
             }
         }
-
         function showCongratulationsMessage() {
         // Create a <div> element to hold the message
             const congratulationsDiv = document.createElement("div");
@@ -110,24 +110,20 @@
             document.body.appendChild(congratulationsDiv);
         }
 
-
-        function updateHighscore(){
-            hS = teller-1;
-            let highscoreElement = document.getElementById("highscore");
-            highscoreElement.textContent = "Highscore: " + hS;
-        }
-
         document.getElementById("inputBox").addEventListener("keydown", handleInput);
     
         // Function to handle input changes and check for expected values
         function handleInput(event) {
-            if (event.key === "Enter") {
 
+                
+            if (event.key === "Enter") {
                 let expectedValue = land;
                 if (this.value.toLowerCase() === expectedValue.toLowerCase() || this.value.toLowerCase() === "idontknow") {
+                    window.scrollTo(0, 100);
                     correct.pause();
                     correct.currentTime = 0;
                     correct.play();
+                    scrollTo(top);
                     teller += 1;
                     let randomFlag = "";
                     let randomCountry = "";
@@ -139,12 +135,10 @@
                     besoekt.delete(randomCountry);
 
                     if(besoekt.size == 0){
-                        updateHighscore();
                         showCongratulationsMessage();
                         document.getElementById("imageContainer").style.display = "none";
                         document.getElementById("titleLabel").style.display = "none";
                         document.getElementById("score").style.display = "none";
-                        document.getElementById("highscore").style.display = "none";
                         return;
                     }
 
@@ -164,9 +158,13 @@
                     imageContainer.innerHTML = "";
                     imageContainer.appendChild(newImage);
                     imageContainer.appendChild(newInput);
-        
-                    newInput.focus();
 
+                    newInput.addEventListener("focus", () => {
+                    newInput.style.opacity = 0;
+                    setTimeout(() => newInput.style.opacity = 1);
+                    });
+
+                    newInput.focus();
                     updateScore(true);
                     newInput.addEventListener("keydown", handleInput);
                 } else {
@@ -209,6 +207,11 @@
                     imageContainer.innerHTML = "";
                     imageContainer.appendChild(newImage);
                     imageContainer.appendChild(newInput);
+
+                    newInput.addEventListener("focus", () => {
+                    newInput.style.opacity = 0;
+                    setTimeout(() => newInput.style.opacity = 1);
+                    });
         
                     newInput.focus();
                     updateScore(false);
