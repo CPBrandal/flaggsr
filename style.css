@@ -296,4 +296,7 @@ input[type="text"] {
         border-color: #389cff;
         box-shadow: 0 0 2vh rgba(30, 144, 255, 0.5);
     }
+        #returnButton {
+        font-size:1.5vh;
+    }
 }
