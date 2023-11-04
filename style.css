@@ -168,7 +168,7 @@ button:hover {
     justify-content: center;
 }
 #mainImage, #newImage {
-    width: 60vw; /* 50% of the viewport width */
+    width: 55vw; /* 50% of the viewport width */
     height: 65vh; /* 50% of the viewport height */
     max-width: 100%; /* Maintain aspect ratio */
     max-height: 100%; /* Maintain aspect ratio */
@@ -196,7 +196,7 @@ input[type="text"] {
 #returnButton {
     background-color: #1e8fff00; /* Green background color */
     color: rgba(255, 255, 255, 0.651); /* Text color */
-    padding: 10px 20px;
+    padding: 1% 4%;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -206,6 +206,22 @@ input[type="text"] {
 /* Hover effect for the button */
 #returnButton:hover {
     background-color: #87CEEB; /* Darker green color on hover */
+}
+
+/* Style for a regular button */
+#easyMode {
+    background-color: #007bff00; /* Background color */
+    color: rgba(255, 255, 255, 0.651);
+    border: none; /* Remove the border */
+    padding: 1% 4%; /* Adjust padding to change button size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    font-size: 1vw;
+}
+
+/* Style for button hover state */
+#easyMode:hover {
+    background-color: #0057b300; /* Change background color on hover */
 }
 
 .congratulations-message {
@@ -221,6 +237,19 @@ input[type="text"] {
     text-align: center;
     z-index: 100; /* Adjust the z-index to ensure it's on top of other elements */
 }
+
+#btn1, #btn2, #btn3, #btn4{
+    padding: 10px;
+    font-size: 1vw;
+    border: 2px solid lightblue;
+    border-radius: 5px;
+    width: 15vw;
+    height: 4vh;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 3px;
+}
+
 @media (max-width: 768px) {
     body {
         /* Adjust styles for phones here */
@@ -296,7 +325,85 @@ input[type="text"] {
         border-color: #389cff;
         box-shadow: 0 0 2vh rgba(30, 144, 255, 0.5);
     }
-    #returnButton {
+        #returnButton {
         font-size:1.5vh;
+    }
+    #btn1 {
+        position: fixed; /* Position the button relative to the viewport */
+        top: 70%; /* Vertically center the button */
+        left: 0px; /* Adjust the left position as needed */
+        transform: translateY(-50%); /* Center the button vertically */
+        color: black;
+        padding: 10px;
+        font-size: 1vh;
+        border: 2px solid rgba(255, 255, 255, 0.537);
+        border-radius: 2%;
+        border-width: 1vw;
+        width: 49.2vw;
+        height: 10vh;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 3px;
+    }
+    
+    #btn2{
+        position: fixed; /* Position the button relative to the viewport */
+        top: 70%; /* Vertically center the button */
+        right: 0px; /* Adjust the left position as needed */
+        transform: translateY(-50%); /* Center the button vertically */
+        color: black;
+        padding: 10px;
+        font-size: 1vh;
+        border: 2px solid rgba(255, 255, 255, 0.537);
+        border-radius: 2%;
+        border-width: 1vw;
+        width: 49.2vw;
+        height: 10vh;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 3px;
+    }
+    #btn3{
+        position: fixed; /* Position the button relative to the viewport */
+        top: 80%; /* Vertically center the button */
+        right: 0px; /* Adjust the left position as needed */
+        transform: translateY(-50%); /* Center the button vertically */
+        color: black;
+        padding: 10px;
+        font-size: 1vh;
+        border: 2px solid rgba(255, 255, 255, 0.537);
+        border-radius: 2%;
+        border-width: 1vw;
+        width: 49.2vw;
+        height: 10vh;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 3px;
+    }
+    #btn4{
+        position: fixed; /* Position the button relative to the viewport */
+        top: 80%; /* Vertically center the button */
+        left: 0px; /* Adjust the left position as needed */
+        transform: translateY(-50%); /* Center the button vertically */
+        color: black;
+        padding: 10px;
+        font-size: 1vh;
+        border: 2px solid rgba(255, 255, 255, 0.537);
+        border-radius: 2%;
+        border-width: 1vw;
+        width: 49.2vw;
+        height: 10vh;
+        max-width: 100%;
+        max-height: 100%;
+        margin: 3px;
+    }
+
+    #easyMode {
+        font-size: 1.5vh;
+    }
+
+    button:hover{
+        background-color: lightblue;
+        color: black;
     }
 }
