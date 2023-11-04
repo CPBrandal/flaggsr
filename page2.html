@@ -385,14 +385,14 @@
 
             // Mute or unmute audio elements
             if (isMuted) {
-                correct.volume = 0;
-                wrong.volume = 0;
-                win.volume = 0;
+                correct.muted = true;
+                wrong.muted = true;
+                win.muted = true;
                 muteImage.src = "sound/mute.png";
             } else {
-                correct.volume = 1;
-                wrong.volume = 1;
-                win.volume = 1;
+                correct.muted = false;
+                wrong.muted = false;
+                win.muted = false;
                 muteImage.src = "sound/sound.png";
             }
             muteButton.blur();
