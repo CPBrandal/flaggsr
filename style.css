@@ -221,7 +221,7 @@ input[type="text"] {
 
 /* Style for button hover state */
 #easyMode:hover {
-    background-color: #0057b300; /* Change background color on hover */
+    background-color: #87CEEB; 
 }
 
 .congratulations-message {
@@ -284,8 +284,8 @@ input[type="text"] {
         position: absolute;
         top: 0vh; /* Adjust the top position as needed */
         right: 0vw; /* Adjust the right position as needed */
-        width: 10vw; /* Adjust the width as needed */
-        height: 10vw; /* Adjust the height as needed */
+        width: 5vw; /* Adjust the width as needed */
+        height: 5vh; /* Adjust the height as needed */
         border-radius: 50%;
         background-color: transparent; /* Make the background transparent */
         color: rgba(255, 2, 2, 0);
@@ -294,8 +294,8 @@ input[type="text"] {
     #muteImage {
         display: block;
         margin: 0;
-        width: 13vw; /* Adjust the width to your desired size */
-        height: 3vh; /* Adjust the height to your desired size */
+        width: 8vw; /* Adjust the width to your desired size */
+        height: 2vh; /* Adjust the height to your desired size */
         border: none;
     }
     
@@ -334,9 +334,10 @@ input[type="text"] {
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
+        background-color: #87CEEB;
         padding: 10px;
         font-size: 1vh;
-        border: 2px solid rgba(255, 255, 255, 0.537);
+        border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
         width: 49.2vw;
@@ -352,9 +353,10 @@ input[type="text"] {
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
+        background-color: #87CEEB;
         padding: 10px;
         font-size: 1vh;
-        border: 2px solid rgba(255, 255, 255, 0.537);
+        border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
         width: 49.2vw;
@@ -369,9 +371,10 @@ input[type="text"] {
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
+        background-color: #87CEEB;
         padding: 10px;
         font-size: 1vh;
-        border: 2px solid rgba(255, 255, 255, 0.537);
+        border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
         width: 49.2vw;
@@ -386,9 +389,10 @@ input[type="text"] {
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
+        background-color: #87CEEB;
         padding: 10px;
         font-size: 1vh;
-        border: 2px solid rgba(255, 255, 255, 0.537);
+        border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
         width: 49.2vw;
