@@ -8,7 +8,7 @@ function handleInput(event) {
             correct.currentTime = 0;
             correct.play();
             scrollTo(top);
-            teller += 1;
+            teller += 1;    
             let randomFlag = "";
             let randomCountry = "";
 
@@ -17,14 +17,6 @@ function handleInput(event) {
             randomCountry = randomPair.country;
             randomFlag = randomPair.flag;
             besoekt.delete(randomCountry);
-
-            if(besoekt.size == 0){
-                showCongratulationsMessage();
-                document.getElementById("imageContainer").style.display = "none";
-                document.getElementById("titleLabel").style.display = "none";
-                document.getElementById("score").style.display = "none";
-                return;
-            }
 
             land = randomCountry;
             // When input matches the expected value, replace the image
@@ -85,18 +77,6 @@ function handleInput(event) {
             randomCountry = randomPair.country;
             randomFlag = randomPair.flag;
             besoekt.delete(randomCountry);
-            
-            if (modul === 0) {
-                besoekt = new Map(countryFlagMap);
-            } else if (modul === 1) {
-                besoekt = new Map(euFlagMap);
-            } else if (modul === 2) {
-                besoekt = new Map(afFlagMap);
-            } else if (modul === 3) {
-                besoekt = new Map(asFlagMap);
-            } else if (modul === 4) {
-                besoekt = new Map(amFlagMap);
-            }
 
             land = randomCountry;
             
@@ -147,6 +127,13 @@ function handleInput(event) {
             newInput.focus();
             updateScore(false);
             newInput.addEventListener("keydown", handleInput);
+        }
+        if(besoekt.size == 0){
+            showCongratulationsMessage();
+            document.getElementById("imageContainer").style.display = "none";
+            document.getElementById("titleLabel").style.display = "none";
+            document.getElementById("score").style.display = "none";
+            return;
         }
     }
 }

@@ -114,6 +114,7 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     font-size: 3vw;
+    margin: 10px;
 }
 #muteButton {
     position: absolute;
@@ -169,15 +170,14 @@ button:hover {
 }
 #mainImage, #newImage {
     width: 55vw; /* 50% of the viewport width */
-    height: 65vh; /* 50% of the viewport height */
+    height: 60vh; /* 50% of the viewport height */
     max-width: 100%; /* Maintain aspect ratio */
     max-height: 100%; /* Maintain aspect ratio */
     display: block; /* Make sure the image is a block element */
-    margin: auto; /* Center the image horizontally */
+    margin: 20px; /* Center the image horizontally */
     border: 2px solid rgba(255, 255, 255, 0.537);
-    border-radius: 10px;
+    border-radius: 1px;
 }
-
 
 input[type="text"] {
     padding: 10px;
@@ -209,18 +209,18 @@ input[type="text"] {
 }
 
 /* Style for a regular button */
-#easyMode {
+#hardMode {
     background-color: #007bff00; /* Background color */
     color: rgba(255, 255, 255, 0.651);
     border: none; /* Remove the border */
     padding: 1% 4%; /* Adjust padding to change button size */
     border-radius: 5px; /* Rounded corners */
     cursor: pointer; /* Add a pointer cursor on hover */
-    font-size: 1vw;
+    font-size: 2vh;
 }
 
 /* Style for button hover state */
-#easyMode:hover {
+#hardMode:hover {
     background-color: #87CEEB; 
 }
 
@@ -247,17 +247,22 @@ input[type="text"] {
     height: 4vh;
     max-width: 100%;
     max-height: 100%;
-    margin: 3px;
+    margin: 5px;
 }
 
 .highlighted-button {
     border-color: rgb(35, 187, 35);
   }
 
+#nextButton{
+    position: fixed;
+    bottom: 10%;
+    right: 35%;
+    height: 7vh;
+}
+
 @media (max-width: 768px) {
     body {
-        /* Adjust styles for phones here */
-        background-image: linear-gradient(to bottom, #87CEEB, #1E90FF); /* Example color change */
         height: 100vh;
         margin: 0;
         height: 60vh;
@@ -330,11 +335,11 @@ input[type="text"] {
         border-color: #389cff;
         box-shadow: 0 0 2vh rgba(30, 144, 255, 0.5);
     }
-        #returnButton {
+    #returnButton {
         font-size:1.5vh;
     }
     #btn1 {
-        position: fixed; /* Position the button relative to the viewport */
+        position: absolute; /* Position the button relative to the viewport */
         top: 67%; /* Vertically center the button */
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
@@ -349,11 +354,11 @@ input[type="text"] {
         height: 5vh;
         max-width: 100%;
         max-height: 100%;
-        margin: 3px;
+        margin: 0px;
     }
     
     #btn2{
-        position: fixed; /* Position the button relative to the viewport */
+        position: absolute; /* Position the button relative to the viewport */
         top: 67%; /* Vertically center the button */
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
@@ -368,10 +373,10 @@ input[type="text"] {
         height: 5vh;
         max-width: 100%;
         max-height: 100%;
-        margin: 3px;
+        margin: 0px;
     }
     #btn3{
-        position: fixed; /* Position the button relative to the viewport */
+        position: absolute; /* Position the button relative to the viewport */
         top: 60%; /* Vertically center the button */
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
@@ -386,10 +391,10 @@ input[type="text"] {
         height: 5vh;
         max-width: 100%;
         max-height: 100%;
-        margin: 3px;
+        margin: 0px;
     }
     #btn4{
-        position: fixed; /* Position the button relative to the viewport */
+        position: absolute; /* Position the button relative to the viewport */
         top: 60%; /* Vertically center the button */
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
@@ -404,15 +409,25 @@ input[type="text"] {
         height: 5vh;
         max-width: 100%;
         max-height: 100%;
-        margin: 3px;
+        margin: 0px;
     }
 
-    #easyMode {
+    #hardMode {
         font-size: 1.5vh;
+    }
+
+    #hardMode:hover {
+        background-color: transparent;
     }
 
     button:hover{
         background-color: lightblue;
         color: black;
     }
+    #nextButton{
+        bottom: 10%;
+        right: 35%;
+        height: 7vh;
+    }
+
 }

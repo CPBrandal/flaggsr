@@ -15,18 +15,20 @@
         <button id="muteButton">
             <img id="muteImage" src="sound/sound.png" alt="Sound">
         </button>
-        <button id="easyMode" style="position: fixed; bottom: 10px; right: 10px;">EasyMode</button>        
+        <button id="hardMode" style="position: fixed; bottom: 10px; right: 10px;">HardMode</button>        
     </div>
     <div id="imageContainer">
         <img src="#" alt="Your Image" id="mainImage">
-        <input type="text" id="inputBox" placeholder="Which country?">
-        <button id="btn1" style="display: none;">a</button>
-        <button id="btn2" style="display: none;">a</button>
-        <button id="btn3" style="display: none;">a</button>
-        <button id="btn4" style="display: none;">a</button>
+        <input type="text" id="inputBox" placeholder="Which country?" style="display: none;">
+        <button id="btn1">a</button>
+        <button id="btn2">a</button>
+        <button id="btn3">a</button>
+        <button id="btn4">a</button>
+    <script src="resetIc.js"></script>
     <script src="return.js"></script>   
     <script src="hashMap.js"></script>
     <script src="handleInput.js"></script>
+
 
     <script>
         let land = "";
@@ -36,13 +38,15 @@
         let besoekt;
         let fullLandListe;
         let total = 0;
-        let isEasy = false;
+        let isHard = false;
         let newInput;
         let randomButton;
 
         const correct = new Audio("sound/correct.mp3");
         const wrong = new Audio("sound/wrong.mp3");
         const win = new Audio("sound/win.mp3");
+
+        
 
         document.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -90,16 +94,18 @@
             setTimeout(() => inp.style.opacity = 1);
             });
 
-
-            b1 = document.getElementById("btn1");
-            b2 = document.getElementById("btn2");
-            b3 = document.getElementById("btn3");
-            b4 = document.getElementById("btn4");
+            let b1 = document.getElementById("btn1");
+            let b2 = document.getElementById("btn2");
+            let b3 = document.getElementById("btn3");
+            let b4 = document.getElementById("btn4");
             randomButton = [b1, b2, b3, b4][Math.floor(Math.random() * 4)];
             randomButton.innerText = land;
             let liste = new Array();
             if(b1.textContent === "a"){
                 b1.textContent = getRandomFullListe().country;
+                while(b1.textContent === land){
+                    b1.textContent = getRandomFullListe().country;
+                }
                 liste.push(b1.textContent);
             }
             if(b2.textContent === "a"){
@@ -128,7 +134,7 @@
             b3.addEventListener("click", knapp);
             b4.addEventListener("click", knapp);
 
-            total = besoekt.size;
+            total = besoekt.size + 1;
             document.getElementById("imageContainer").style.display = "flex";
             document.getElementById("score").removeAttribute("hidden");
             document.getElementById("score").textContent = "Score: " + teller + "/" + total;
@@ -145,6 +151,7 @@
                 scoreElement.textContent = "Score: " + teller + "/" + total;
             }
         }
+
         function showCongratulationsMessage() {
         // Create a <div> element to hold the message
             const congratulationsDiv = document.createElement("div");
@@ -152,7 +159,7 @@
 
             // Create the message text
             const messageText = document.createElement("p");
-            messageText.textContent = "Congratulations!";
+            messageText.textContent = "You got: " + teller + "/" + total;
             
             // Append the message text to the <div>
             congratulationsDiv.appendChild(messageText);
@@ -227,143 +234,37 @@
             besoekt.delete(randomCountry);
     }
 
+
     function knapp(){
         if(this.textContent === land){
+            window.scrollTo(0, 100);
+            correct.pause();
+            correct.currentTime = 0;
             correct.play();
-            teller += 1;
-            let randomFlag = "";
-            let randomCountry = "";
-            let randomPair = getRandom();
-            randomCountry = randomPair.country;
-            randomFlag = randomPair.flag;
-            besoekt.delete(randomCountry);
-
-            if(besoekt.size == 0){
-                showCongratulationsMessage();
-                document.getElementById("imageContainer").style.display = "none";
-                document.getElementById("titleLabel").style.display = "none";
-                document.getElementById("score").style.display = "none";
-                return;
-            }
-
-            land = randomCountry;
-            // When input matches the expected value, replace the image
-            let imageContainer = document.getElementById("imageContainer");
-            let newImage = document.createElement("img");
-            newImage.id = "newImage";
-            newImage.src = randomFlag; 
-            newImage.alt = "Another Image";
-
-            let newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.style.display = "none";
-            newInput.placeholder = "Which country";
-
-            // Clear the container and add new elements
-            imageContainer.innerHTML = "";
-            imageContainer.appendChild(newImage);
-            imageContainer.appendChild(newInput);
-            const tall = Math.floor(Math.random() * 4) + 1;
-            let liste = new Array();
-
-            for (let i = 1; i <= 4; i++) {
-            const newButton = document.createElement("button");
-            newButton.id = "btn" + i;
-            if(i === tall){
-                newButton.textContent = land; 
-            } else {
-                newButton.textContent = getRandomFullListe().country;
-                while(liste.includes(newButton.textContent) || newButton.textContent === land){
-                    newButton.textContent = getRandomFullListe().country;
-                }
-                liste.push(newButton.textContent);
-            }
-            // Add a click event listener to the new button
-            newButton.addEventListener("click", knapp);
-
-            // Append the new button to the imageContainer
-            imageContainer.appendChild(newButton);
-        }
-
-            newInput.addEventListener("focus", () => {
-            newInput.style.opacity = 0;
-            setTimeout(() => newInput.style.opacity = 1);
-            });
-
-            updateScore(true);
-            newInput.addEventListener("keydown", handleInput);
+            teller += 1; 
+            this.style.backgroundColor = 'lightgreen';
+            this.style.border = '2px solid black';
         } else {
+            wrong.pause();
+            wrong.currentTime = 0;
             wrong.play();
-            let randomFlag = "";
-            let randomCountry = "";
-            let randomPair = getRandom();
-            randomCountry = randomPair.country;
-            randomFlag = randomPair.flag;
-            besoekt.delete(randomCountry);
-
-            if (modul === 0) {
-                besoekt = new Map(countryFlagMap);
-            } else if (modul === 1) {
-                besoekt = new Map(euFlagMap);
-            } else if (modul === 2) {
-                besoekt = new Map(afFlagMap);
-            } else if (modul === 3) {
-                besoekt = new Map(asFlagMap);
-            } else if (modul === 4) {
-                besoekt = new Map(amFlagMap);
-            }
-
-            land = randomCountry;
-            
-            // When input matches the expected value, replace the image
-            let imageContainer = document.getElementById("imageContainer");
-            let newImage = document.createElement("img");
-            newImage.id = "newImage";
-            newImage.src = randomFlag; 
-            newImage.alt = "Another Image";
-
-            newInput = document.createElement("input");
-            newInput.type = "text";
-            newInput.style.display = "none";
-            newInput.placeholder = "Which country";
-
-            // Clear the container and add new elements
-            imageContainer.innerHTML = "";
-            imageContainer.appendChild(newImage);
-            imageContainer.appendChild(newInput);
-
-            const tall = Math.floor(Math.random() * 4) + 1;
-            let liste = new Array();
-
-            for (let i = 1; i <= 4; i++) {
-            const newButton = document.createElement("button");
-            newButton.id = "btn" + i;
-            if(i === tall){
-                newButton.textContent = land; 
-            } else {
-                newButton.textContent = getRandomFullListe().country;
-                while(liste.includes(newButton.textContent) || newButton.textContent === land){
-                    newButton.textContent = getRandomFullListe().country;
+            this.style.backgroundColor = 'lightcoral';
+            this.style.border = '2px solid black';
+            const buttonElements = document.querySelectorAll("#imageContainer button");
+            for (const buttonElement of buttonElements) {
+                if(buttonElement.textContent === land){
+                    buttonElement.style.backgroundColor = "lightgreen";
                 }
-                liste.push(newButton.textContent);
             }
-            // Add a click event listener to the new button
-            newButton.addEventListener("click", knapp);
-
-            // Append the new button to the imageContainer
-            imageContainer.appendChild(newButton);
         }
-
-            newInput.addEventListener("focus", () => {
-            newInput.style.opacity = 0;
-            setTimeout(() => newInput.style.opacity = 1);
-            });
-
-            updateScore(false);
-            newInput.addEventListener("keydown", handleInput);
-        }
+        updateScore(true);
+        let imageContainer = document.getElementById("imageContainer");
+        let nextButton = document.createElement("button");
+        nextButton.id = "nextButton";
+        nextButton.textContent = "Next";
+        imageContainer.appendChild(nextButton);
+        nextButton.addEventListener("click", resetIc);
     }
-
 
         const muteButton = document.getElementById("muteButton");
 
@@ -392,31 +293,30 @@
         muteButton.addEventListener("click", toggleMute);
 
 
-        const easy = document.getElementById("easyMode");
+        const hard = document.getElementById("hardMode");
 
-        function easyMode(){
-            isEasy = !isEasy;
+        function hardMode(){
+            isHard = !isHard;
                         // Get all input elements
             const inputElements = document.querySelectorAll("input");
             const buttonElements = document.querySelectorAll("#imageContainer button");
-            if(isEasy){const buttonElements = document.querySelectorAll("#imageContainer button");
-                for (const inputElement of inputElements) {
-                    inputElement.style.display = "none";
-                }   
-                for (const buttonElement of buttonElements) {
-                    buttonElement.style.display = "flex";
-            }
-            } else {
+            if(isHard){const buttonElements = document.querySelectorAll("#imageContainer button");
                 for (const inputElement of inputElements) {
                     inputElement.style.display = "flex";
-            }
+                }   
                 for (const buttonElement of buttonElements) {
                     buttonElement.style.display = "none";
             }
+            } else {
+                for (const inputElement of inputElements) {
+                    inputElement.style.display = "none";
+            }
+                for (const buttonElement of buttonElements) {
+                    buttonElement.style.display = "flex";
+            }
         }
     }
-        easy.addEventListener("click", easyMode);
-
+        hard.addEventListener("click", hardMode);
         </script>
 </body>
 </html>
