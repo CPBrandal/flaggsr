@@ -38,28 +38,16 @@
         let total = 0;
         let isEasy = false;
         let newInput;
-        let b1;
-        let b2;
-        let b3;
-        let b4;
         let randomButton;
 
         const correct = new Audio("sound/correct.mp3");
         const wrong = new Audio("sound/wrong.mp3");
         const win = new Audio("sound/win.mp3");
 
-        setTimeout(() => window.scrollTo(0, 100));
         document.addEventListener("DOMContentLoaded", function() {
             const urlParams = new URLSearchParams(window.location.search);
             const buttonPressed = urlParams.get("button");
             let a = document.getElementById("titleLabel");
-
-            let inp = document.getElementById("inputBox");
-            setTimeout(() => window.scrollTo(0, 100));
-            inp.addEventListener("focus", () => {
-            inp.style.opacity = 0;
-            setTimeout(() => inp.style.opacity = 1);
-            });
 
             if (buttonPressed === "World") {
                 besoekt = new Map(countryFlagMap);
@@ -94,7 +82,15 @@
                 fullLandListe = new Map(amFlagMap);
                 setRandomInitialImageAm();
                 a.textContent="America";
-        }
+            }
+            let inp = document.getElementById("inputBox");
+            setTimeout(() => window.scrollTo(0, 100));
+            inp.addEventListener("focus", () => {
+            inp.style.opacity = 0;
+            setTimeout(() => inp.style.opacity = 1);
+            });
+
+
             b1 = document.getElementById("btn1");
             b2 = document.getElementById("btn2");
             b3 = document.getElementById("btn3");
@@ -233,8 +229,6 @@
 
     function knapp(){
         if(this.textContent === land){
-            correct.pause();
-            correct.currentTime = 0;
             correct.play();
             teller += 1;
             let randomFlag = "";
@@ -299,8 +293,6 @@
             updateScore(true);
             newInput.addEventListener("keydown", handleInput);
         } else {
-            wrong.pause();
-            wrong.currentTime = 0;
             wrong.play();
             let randomFlag = "";
             let randomCountry = "";

@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to bottom, #87CEEB, #0d83f9); /* Replace the color codes with your desired gradient colors */
+    background-image: linear-gradient(to bottom, #87CEEB, #0d83f9);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -250,6 +250,10 @@ input[type="text"] {
     margin: 3px;
 }
 
+.highlighted-button {
+    border-color: rgb(35, 187, 35);
+  }
+
 @media (max-width: 768px) {
     body {
         /* Adjust styles for phones here */
@@ -273,11 +277,12 @@ input[type="text"] {
         /* Other phone-specific styles here */
     }
     h1 {
-        font-size: large;
+        font-size: x-large;
     }
     #mainImage, #newImage {
         width: 100vw; /* 50% of the viewport width */
-        height: 40vh; /* 50% of the viewport height */
+        max-height: 30vh;
+        margin: 30px;
     }
 
     #muteButton {
@@ -330,18 +335,18 @@ input[type="text"] {
     }
     #btn1 {
         position: fixed; /* Position the button relative to the viewport */
-        top: 70%; /* Vertically center the button */
+        top: 67%; /* Vertically center the button */
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
         background-color: #87CEEB;
         padding: 10px;
-        font-size: 1vh;
+        font-size: 2.2vw;
         border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
-        width: 49.2vw;
-        height: 10vh;
+        width: 48vw;
+        height: 5vh;
         max-width: 100%;
         max-height: 100%;
         margin: 3px;
@@ -349,54 +354,54 @@ input[type="text"] {
     
     #btn2{
         position: fixed; /* Position the button relative to the viewport */
-        top: 70%; /* Vertically center the button */
+        top: 67%; /* Vertically center the button */
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
         background-color: #87CEEB;
         padding: 10px;
-        font-size: 1vh;
+        font-size: 2.2vw;
         border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
-        width: 49.2vw;
-        height: 10vh;
+        width: 48vw;
+        height: 5vh;
         max-width: 100%;
         max-height: 100%;
         margin: 3px;
     }
     #btn3{
         position: fixed; /* Position the button relative to the viewport */
-        top: 80%; /* Vertically center the button */
+        top: 60%; /* Vertically center the button */
         right: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
         background-color: #87CEEB;
         padding: 10px;
-        font-size: 1vh;
+        font-size: 2.2vw;
         border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
-        width: 49.2vw;
-        height: 10vh;
+        width: 48vw;
+        height: 5vh;
         max-width: 100%;
         max-height: 100%;
         margin: 3px;
     }
     #btn4{
         position: fixed; /* Position the button relative to the viewport */
-        top: 80%; /* Vertically center the button */
+        top: 60%; /* Vertically center the button */
         left: 0px; /* Adjust the left position as needed */
         transform: translateY(-50%); /* Center the button vertically */
         color: black;
         background-color: #87CEEB;
         padding: 10px;
-        font-size: 1vh;
+        font-size: 2.2vw;
         border: 2px solid rgba(255, 255, 255, 0.673);
         border-radius: 2%;
         border-width: 1vw;
-        width: 49.2vw;
-        height: 10vh;
+        width: 48vw;
+        height: 5vh;
         max-width: 100%;
         max-height: 100%;
         margin: 3px;
