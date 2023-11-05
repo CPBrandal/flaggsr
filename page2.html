@@ -13,7 +13,7 @@
 
         <button id="returnButton" style="position: fixed; bottom: 10px; left: 10px;">Return</button>
         <button id="muteButton">
-            <img id="muteImage" src="sound/sound.png" alt="Sound">
+            <img id="muteImage" src="sound/mute.png" alt="Sound">
         </button>
         <button id="hardMode" style="position: fixed; bottom: 10px; right: 10px;">HardMode</button>        
     </div>
@@ -269,7 +269,7 @@
         const muteButton = document.getElementById("muteButton");
 
         // Create a variable to track the mute status
-        let isMuted = false;
+        let isMuted = true;
 
         // Function to toggle mute status
         function toggleMute() {
