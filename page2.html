@@ -104,21 +104,21 @@
             }
             if(b2.textContent === "a"){
                     b2.textContent = getRandomFullListe().country;
-                while(liste.includes(b2.textContent)){
+                while(liste.includes(b2.textContent) || b2.textContent === land){
                     b2.textContent = getRandomFullListe().country;
                 }
                 liste.push(b2.textContent);
             }
             if(b3.textContent === "a"){
                 b3.textContent = getRandomFullListe().country;
-                while(liste.includes(b3.textContent)){
+                while(liste.includes(b3.textContent) || b3.textContent === land){
                     b3.textContent = getRandomFullListe().country;
                 }
                 liste.push(b3.textContent);
             }
             if(b4.textContent === "a"){
                 b4.textContent = getRandomFullListe().country;
-                while(liste.includes(b4.textContent)){
+                while(liste.includes(b4.textContent) || b4.textContent === land){
                     b4.textContent = getRandomFullListe().country;
                 }
             }
