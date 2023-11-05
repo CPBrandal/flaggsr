@@ -52,6 +52,10 @@
             const urlParams = new URLSearchParams(window.location.search);
             const buttonPressed = urlParams.get("button");
             let a = document.getElementById("titleLabel");
+            
+            correct.muted = true;
+            wrong.muted = true;
+            win.muted = true;
 
             if (buttonPressed === "World") {
                 besoekt = new Map(countryFlagMap);
