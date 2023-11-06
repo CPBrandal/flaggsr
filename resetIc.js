@@ -1,4 +1,8 @@
-function resetIc() {
+function resetIc(parameter) {
+    tellerHarBlittEndret = false;
+    if(parameter != "hard"){
+        this.style.display = "none";
+    }
     if (besoekt.size === 0) {
         showCongratulationsMessage();
         document.getElementById("imageContainer").style.display = "none";
@@ -14,7 +18,7 @@ function resetIc() {
 
     land = randomCountry;
 
-    // Create a new Image element to preload the image
+    // Create a new Image element to preload    the image
     let preloadedImage = new Image();
     preloadedImage.src = randomFlag;
 
@@ -22,13 +26,19 @@ function resetIc() {
     preloadedImage.onload = function () {
         // Get the existing image element
         let imageElement = document.getElementById("mainImage");
-
         // Update the existing image element's attributes
         imageElement.src = preloadedImage.src;
+        imageElement.placeholder = "Which country?";
         imageElement.alt = "Another Image";
-
+    };
+    
         newInput = document.getElementById("inputBox");
-        newInput.style.display = "none";
+        if(parameter === "hard"){
+            newInput.style.display = "flex";
+        } else {
+            newInput.style.display = "none";
+        }
+        newInput.value = "";
         newInput.placeholder = "Which country";
 
         const tall = Math.floor(Math.random() * 4) + 1;
@@ -49,7 +59,6 @@ function resetIc() {
                 liste.push(newButton.textContent);
             }
         }
-
+        updateTotal();
         updateScore(true);
-    };
 }

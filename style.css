@@ -82,7 +82,19 @@ h3 {
     text-transform: uppercase;
     font-weight: bold;
     font-family: sans-serif;
-    font-size: 1vw;
+    font-size: 1.5vw;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    margin: 10px; /* Adjust margin to control the distance from the edge of the container */
+    color: #eee;
+}
+#tot {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: sans-serif;
+    font-size: 1.5vw;
     letter-spacing: 0.1em;
     position: absolute;
     top: 0;

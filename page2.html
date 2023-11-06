@@ -10,6 +10,7 @@
     <div>
         <h1 id="titleLabel"></h1>
         <h3 id="score" position >Score: </h3>
+        <h3 id="tot" position > </h3>
 
         <button id="returnButton" style="position: fixed; bottom: 10px; left: 10px;">Return</button>
         <button id="muteButton">
@@ -24,6 +25,7 @@
         <button id="btn2">a</button>
         <button id="btn3">a</button>
         <button id="btn4">a</button>
+        <button id="nextButton" style="display: none;"></button>
     <script src="resetIc.js"></script>
     <script src="return.js"></script>   
     <script src="hashMap.js"></script>
@@ -34,6 +36,7 @@
         let land = "";
         let modul = 0;
         let teller = 0;
+        let teller2 = 0;
         let hS = 0;
         let besoekt;
         let fullLandListe;
@@ -139,20 +142,24 @@
             b4.addEventListener("click", knapp);
 
             total = besoekt.size + 1;
+            updateTotal();
             document.getElementById("imageContainer").style.display = "flex";
             document.getElementById("score").removeAttribute("hidden");
-            document.getElementById("score").textContent = "Score: " + teller + "/" + total;
+            document.getElementById("score").textContent = "Score: " + teller;
             document.getElementById("inputBox").focus();
             });
+
+
+        function updateTotal(){
+            teller2 += 1;
+            let totAnt = document.getElementById("tot");
+            totAnt.textContent = "" + teller2 + "/" + total;
+        }
 
         function updateScore(bool){
             if(bool === true){
                 let scoreElement = document.getElementById("score");
-                scoreElement.textContent = "Score: " + teller + "/" + total;
-            } else {
-                teller = 0;
-                let scoreElement = document.getElementById("score");
-                scoreElement.textContent = "Score: " + teller + "/" + total;
+                scoreElement.textContent = "Score: " + teller;
             }
         }
 
@@ -172,7 +179,7 @@
             document.body.appendChild(congratulationsDiv);
         }
 
-        document.getElementById("inputBox").addEventListener("keydown", handleInput);
+        document.getElementById("inputBox").addEventListener("keydown", input);
     
         // Function to handle input changes and check for expected values
         
@@ -239,16 +246,44 @@
     }
 
 
+    function input(){                
+        if (event.key === "Enter") {
+            if (this.value.toLowerCase() === land.toLowerCase() || this.value.toLowerCase() === "idontknow") {
+                window.scrollTo(0, 100);
+                correct.pause();
+                correct.currentTime = 0;
+                teller += 1;
+                correct.play();
+                scrollTo(top);
+            } else {
+                wrong.pause();
+                wrong.currentTime = 0;
+                wrong.play();
+            }
+            updateScore(true);
+            let nextButton = document.createElement("button");
+            nextButton.textContent = "Next";
+            nextButton.style.display = "none";
+            nextButton.addEventListener("click", resetIc("hard"));
+        }
+    }
+     
+    let tellerHarBlittEndret = false;
+
     function knapp(){
         if(this.textContent === land){
             window.scrollTo(0, 100);
             correct.pause();
             correct.currentTime = 0;
             correct.play();
-            teller += 1; 
+            if(tellerHarBlittEndret === false){
+                teller += 1;
+            }
+            tellerHarBlittEndret = true;
             this.style.backgroundColor = 'lightgreen';
             this.style.border = '2px solid black';
         } else {
+            tellerHarBlittEndret = true;
             wrong.pause();
             wrong.currentTime = 0;
             wrong.play();
@@ -262,11 +297,9 @@
             }
         }
         updateScore(true);
-        let imageContainer = document.getElementById("imageContainer");
-        let nextButton = document.createElement("button");
-        nextButton.id = "nextButton";
+        let nextButton = document.getElementById("nextButton");
         nextButton.textContent = "Next";
-        imageContainer.appendChild(nextButton);
+        nextButton.style.display = "flex";
         nextButton.addEventListener("click", resetIc);
     }
 
@@ -309,14 +342,16 @@
                     inputElement.style.display = "flex";
                 }   
                 for (const buttonElement of buttonElements) {
-                    buttonElement.style.display = "none";
-            }
+                        buttonElement.style.display = "none";
+                }
             } else {
                 for (const inputElement of inputElements) {
                     inputElement.style.display = "none";
             }
                 for (const buttonElement of buttonElements) {
-                    buttonElement.style.display = "flex";
+                    if(buttonElement.id != "nextButton"){
+                        buttonElement.style.display = "flex";
+                    }
             }
         }
     }
