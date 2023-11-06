@@ -28,7 +28,6 @@ function resetIc(parameter) {
         let imageElement = document.getElementById("mainImage");
         // Update the existing image element's attributes
         imageElement.src = preloadedImage.src;
-        imageElement.placeholder = "Which country?";
         imageElement.alt = "Another Image";
     };
     

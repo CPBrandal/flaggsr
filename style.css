@@ -87,7 +87,7 @@ h3 {
     position: absolute;
     top: 30px;
     left: 0;
-    margin: 10px; /* Adjust margin to control the distance from the edge of the container */
+    margin: 10px;
     color: #eee;
 }
 #tot {
@@ -99,7 +99,7 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
-    margin: 10px; /* Adjust margin to control the distance from the edge of the container */
+    margin: 10px;
     color: #eee;
 }
 
@@ -108,11 +108,11 @@ h2 {
     font-weight: bold;
     font-family: sans-serif;
     letter-spacing: 0.1em;
-    font-size: 1vw; /* You can adjust the font size as needed */
+    font-size: 1vw;
     position: absolute;
-    top: 3%; /* Set top to 100% to place it directly below the h3 */
-    left: 0; /* Set left to 0% to align with the left edge */
-    margin: 10px; /* Adjust margin to control the distance from the h3 */
+    top: 3%;
+    left: 0;
+    margin: 10px;
     color: #eee;
 }
 
@@ -130,10 +130,10 @@ h1 {
 }
 #muteButton {
     position: absolute;
-    top: 0; /* Adjust the top position as needed */
-    right: 0; /* Adjust the right position as needed */
-    width: 3vw; /* Adjust the width as needed */
-    height: 3vw; /* Adjust the height as needed */
+    top: 0; 
+    right: 0;
+    width: 3vw; 
+    height: 3vw;
     border-radius: 50%;
     background-color: lightblue;
     color: white;
@@ -142,21 +142,20 @@ h1 {
     align-items: center;
     cursor: pointer;
     border: none;
-    box-shadow: 0 0 2vh rgba(0, 0, 0, 0.2); /* Adjust the shadow size as needed */
+    box-shadow: 0 0 2vh rgba(0, 0, 0, 0.2);
     transition: background-color 0.3s, transform 0.2s;
 }
 
 
 #muteButton:hover {
-    background-color: rgb(154, 190, 202); /* Darker blue on hover */
-    transform: scale(1.05); /* Slight scale-up on hover */
+    background-color: rgb(154, 190, 202);
+    transform: scale(1.05);
 }
 #muteImage {
-    /* Center the image within the button and adjust its size */
     display: block;
     margin: 0 auto;
-    width: 3vw; /* Adjust the width to your desired size */
-    height: 3vh; /* Adjust the height to your desired size */
+    width: 3vw;
+    height: 3vh;
     border: "none";
 }
 button {
@@ -166,13 +165,13 @@ button {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
-    width: 100px; /* Adjust the width as needed */
-    margin: 5px; /* Add some margin between buttons */
-    border-radius: 12px; /* Adjust the border-radius to control the roundness */
+    width: 100px;
+    margin: 5px;
+    border-radius: 12px;
     transition: background-color 0.3s;
 }
 button:hover {      
-    background-color: rgba(118, 221, 255, 0.8); /* Adjust the opacity (last value) as needed */
+    background-color: rgba(118, 221, 255, 0.8);
 }
 #imageContainer {
     display: none;
@@ -181,12 +180,12 @@ button:hover {
     justify-content: center;
 }
 #mainImage, #newImage {
-    width: 55vw; /* 50% of the viewport width */
-    height: 60vh; /* 50% of the viewport height */
-    max-width: 100%; /* Maintain aspect ratio */
-    max-height: 100%; /* Maintain aspect ratio */
-    display: block; /* Make sure the image is a block element */
-    margin: 20px; /* Center the image horizontally */
+    width: 55vw;
+    height: 60vh;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    margin: 20px;
     border: 2px solid rgba(255, 255, 255, 0.537);
     border-radius: 1px;
 }
@@ -201,13 +200,13 @@ input[type="text"] {
     max-width: 100%;
     max-height: 100%;
     margin: 10px;
-    outline: none; /* Remove the default input outline */
-    border-color: #1E90FF; /* Change border color when focused */
-    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5); /* Add a subtle box shadow when focused */
+    outline: none;
+    border-color: #1E90FF;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
 }
 #returnButton {
-    background-color: #1e8fff00; /* Green background color */
-    color: rgba(255, 255, 255, 0.651); /* Text color */
+    background-color: #1e8fff00;
+    color: rgba(255, 255, 255, 0.651);
     padding: 1% 4%;
     border: none;
     border-radius: 5px;
@@ -215,23 +214,21 @@ input[type="text"] {
     font-size: 1vw;
 }
 
-/* Hover effect for the button */
+
 #returnButton:hover {
-    background-color: #87CEEB; /* Darker green color on hover */
+    background-color: #87CEEB;
 }
 
-/* Style for a regular button */
 #hardMode {
-    background-color: #007bff00; /* Background color */
+    background-color: #007bff00;
     color: rgba(255, 255, 255, 0.651);
-    border: none; /* Remove the border */
-    padding: 1% 4%; /* Adjust padding to change button size */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Add a pointer cursor on hover */
+    border: none;
+    padding: 1% 4%;
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 2vh;
 }
 
-/* Style for button hover state */
 #hardMode:hover {
     background-color: #87CEEB; 
 }
@@ -247,7 +244,7 @@ input[type="text"] {
     border-radius: 5px;
     font-size: 48px;
     text-align: center;
-    z-index: 100; /* Adjust the z-index to ensure it's on top of other elements */
+    z-index: 100;
 }
 
 #btn1, #btn2, #btn3, #btn4{
@@ -284,45 +281,44 @@ input[type="text"] {
 
     button {
         font-size:3vw;
-        height: 6vh;/* Adjust font size for buttons on phones */
-        width: 20vw;/* Adjust font size for buttons on phones */
-        /* Other phone-specific styles here */
+        height: 6vh;
+        width: 20vw;
     }
 
     h3 {
-        font-size: 3vw; /* Adjust font size for h3 on phones */
-        /* Other phone-specific styles here */
+        font-size: 3vw;
+        margin: 10px;
     }
     h1 {
         font-size: x-large;
     }
     #mainImage, #newImage {
-        width: 100vw; /* 50% of the viewport width */
+        width: 100vw; 
         max-height: 30vh;
         margin: 30px;
     }
 
     #muteButton {
         position: absolute;
-        top: 0vh; /* Adjust the top position as needed */
-        right: 0vw; /* Adjust the right position as needed */
-        width: 5vw; /* Adjust the width as needed */
-        height: 5vh; /* Adjust the height as needed */
+        top: 0vh; 
+        right: 0vw; 
+        width: 5vw;
+        height: 5vh;
         border-radius: 50%;
-        background-color: transparent; /* Make the background transparent */
+        background-color: transparent;
         color: rgba(255, 2, 2, 0);
     }
     
     #muteImage {
         display: block;
         margin: 0;
-        width: 8vw; /* Adjust the width to your desired size */
-        height: 2vh; /* Adjust the height to your desired size */
+        width: 8vw;
+        height: 2vh;
         border: none;
     }
     
     #muteButton:hover {
-        background-color: transparent; /* Make the background transparent on hover */
+        background-color: transparent;
     }
     #imageContainer {
         display: none;
@@ -334,14 +330,14 @@ input[type="text"] {
 
     input[type="text"] {
         overflow: hidden;
-        padding: 2vh 4vw; /* Adjust the padding as needed */
-        font-size: 17px!important; /* Adjust the font size as needed */
-        border: 1vh solid lightblue; /* Adjust the border width as needed */
-        border-radius: 1vw; /* Adjust the border-radius as needed */
-        width: 50vw; /* Adjust the width as needed */
-        height: 1.5vh; /* Adjust the height as needed */
-        max-width: 100%; /* Maintain aspect ratio */
-        max-height: 100%; /* Maintain aspect ratio */
+        padding: 2vh 4vw;
+        font-size: 17px!important;
+        border: 1vh solid lightblue;
+        border-radius: 1vw;
+        width: 50vw;
+        height: 1.5vh;
+        max-width: 100%;
+        max-height: 100%;
         margin: 2vh;
         outline: none;
         border-color: #389cff;
@@ -351,10 +347,10 @@ input[type="text"] {
         font-size:1.5vh;
     }
     #btn1 {
-        position: absolute; /* Position the button relative to the viewport */
-        top: 67%; /* Vertically center the button */
-        left: 0px; /* Adjust the left position as needed */
-        transform: translateY(-50%); /* Center the button vertically */
+        position: absolute;
+        top: 67%;
+        left: 0px;
+        transform: translateY(-50%);
         color: black;
         background-color: #87CEEB;
         padding: 10px;
@@ -370,10 +366,10 @@ input[type="text"] {
     }
     
     #btn2{
-        position: absolute; /* Position the button relative to the viewport */
-        top: 67%; /* Vertically center the button */
-        right: 0px; /* Adjust the left position as needed */
-        transform: translateY(-50%); /* Center the button vertically */
+        position: absolute;
+        top: 67%;
+        right: 0px;
+        transform: translateY(-50%);
         color: black;
         background-color: #87CEEB;
         padding: 10px;
@@ -388,10 +384,10 @@ input[type="text"] {
         margin: 0px;
     }
     #btn3{
-        position: absolute; /* Position the button relative to the viewport */
-        top: 60%; /* Vertically center the button */
-        right: 0px; /* Adjust the left position as needed */
-        transform: translateY(-50%); /* Center the button vertically */
+        position: absolute;
+        top: 60%;
+        right: 0px;
+        transform: translateY(-50%);
         color: black;
         background-color: #87CEEB;
         padding: 10px;
@@ -406,10 +402,10 @@ input[type="text"] {
         margin: 0px;
     }
     #btn4{
-        position: absolute; /* Position the button relative to the viewport */
-        top: 60%; /* Vertically center the button */
-        left: 0px; /* Adjust the left position as needed */
-        transform: translateY(-50%); /* Center the button vertically */
+        position: absolute;
+        top: 60%;
+        left: 0px;
+        transform: translateY(-50%);
         color: black;
         background-color: #87CEEB;
         padding: 10px;
@@ -441,5 +437,8 @@ input[type="text"] {
         right: 35%;
         height: 7vh;
     }
-
+    #tot {
+        font-size: 3vw;
+        margin: 10px;
+    }
 }
