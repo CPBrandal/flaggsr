@@ -15,6 +15,9 @@ function resetIc() {
     
     let imageElement = document.getElementById("mainImage");
 
+    let oldsrc = imageElement.src;
+    imageElement.src = oldsrc;
+
     imageElement.addEventListener('load', function () {
         // Once the new image is fully loaded, update the src attribute
         imageElement.src = randomFlag;
