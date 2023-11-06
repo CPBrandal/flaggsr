@@ -41,6 +41,7 @@ function resetIc() {
             while (liste.includes(newButton.textContent) || newButton.textContent === land) {
                 newButton.textContent = getRandomFullListe().country;
             }
+            liste.push(newButton.textContent);
         }
     }
 
