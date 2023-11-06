@@ -136,4 +136,9 @@ function handleInput(event) {
             return;
         }
     }
+  let nextButton = document.get("button");
+        nextButton.id = "nextButton";
+        nextButton.textContent = "Next";
+        imageContainer.appendChild(nextButton);
+        nextButton.addEventListener("click", resetIc);
 }
