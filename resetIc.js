@@ -6,22 +6,12 @@ function resetIc() {
         document.getElementById("score").style.display = "none";
         return;
     }
-
-    let randomPair = getRandom();
-    let randomCountry = randomPair.country;
-    let randomFlag = randomPair.flag;
-    besoekt.delete(randomCountry);
-
-    land = randomCountry;
-
-    // Get the existing image element
     let imageElement = document.getElementById("mainImage");
+    let randomPair = getRandom();
+    imageElement.src = randomPair.flag;
+    land = randomPair.country;
+    besoekt.delete(randomPair.country);
 
-    // Update the existing image element's attributes
-    imageElement.src = randomFlag;
-    imageElement.alt = "Another Image";
-
-    // Reuse the existing input element and just update its attributes
     newInput = document.getElementById("inputBox");
     newInput.style.display = "none";
     newInput.placeholder = "Which country";
