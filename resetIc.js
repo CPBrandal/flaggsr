@@ -42,6 +42,7 @@ function resetIc() {
                 newButton.textContent = getRandomFullListe().country;
             }
         }
+        liste.push(newButton.textContent);
     }
 
     updateScore(true);
