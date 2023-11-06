@@ -17,19 +17,11 @@ function resetIc() {
     // Get the existing image element
     let imageElement = document.getElementById("mainImage");
 
-    // Store the old image source in a temporary variable
-    let oldSrc = imageElement.src;
-
-    // Update the existing image element's attributes with a placeholder or loading image
-    imageElement.src = "w2560/ad.png"; // Replace 'loading.gif' with your actual loading image source
+    // Update the existing image element's attributes
+    imageElement.src = randomFlag;
     imageElement.alt = "Another Image";
 
-    // Add an event listener to the image to track when it's fully loaded
-    imageElement.addEventListener('load', function () {
-        // Once the new image is fully loaded, update the src attribute
-        imageElement.src = randomFlag;
-    });
-
+    // Reuse the existing input element and just update its attributes
     newInput = document.getElementById("inputBox");
     newInput.style.display = "none";
     newInput.placeholder = "Which country";
