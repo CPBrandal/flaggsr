@@ -14,36 +14,42 @@ function resetIc() {
 
     land = randomCountry;
 
-    // Get the existing image element
-    let imageElement = document.getElementById("mainImage");
+    // Create a new Image element to preload the image
+    let preloadedImage = new Image();
+    preloadedImage.src = randomFlag;
 
-    // Update the existing image element's attributes
-    imageElement.src = randomFlag;
-    imageElement.alt = "Another Image";
+    // Once the new image is fully loaded, update the existing image element's source
+    preloadedImage.onload = function () {
+        // Get the existing image element
+        let imageElement = document.getElementById("mainImage");
 
-    // Reuse the existing input element and just update its attributes
-    newInput = document.getElementById("inputBox");
-    newInput.style.display = "none";
-    newInput.placeholder = "Which country";
+        // Update the existing image element's attributes
+        imageElement.src = preloadedImage.src;
+        imageElement.alt = "Another Image";
 
-    const tall = Math.floor(Math.random() * 4) + 1;
-    let liste = new Array();
+        newInput = document.getElementById("inputBox");
+        newInput.style.display = "none";
+        newInput.placeholder = "Which country";
 
-    for (let i = 1; i <= 4; i++) {
-        let newButton = document.getElementById("btn" + i);
-        newButton.style.backgroundColor = '';  // Reset button background color
-        newButton.style.border = '';  // Reset button border
+        const tall = Math.floor(Math.random() * 4) + 1;
+        let liste = new Array();
 
-        if (i === tall) {
-            newButton.textContent = land;
-        } else {
-            newButton.textContent = getRandomFullListe().country;
-            while (liste.includes(newButton.textContent) || newButton.textContent === land) {
+        for (let i = 1; i <= 4; i++) {
+            let newButton = document.getElementById("btn" + i);
+            newButton.style.backgroundColor = '';  // Reset button background color
+            newButton.style.border = '';  // Reset button border
+
+            if (i === tall) {
+                newButton.textContent = land;
+            } else {
                 newButton.textContent = getRandomFullListe().country;
+                while (liste.includes(newButton.textContent) || newButton.textContent === land) {
+                    newButton.textContent = getRandomFullListe().country;
+                }
+                liste.push(newButton.textContent);
             }
         }
-        liste.push(newButton.textContent);
-    }
 
-    updateScore(true);
+        updateScore(true);
+    };
 }
