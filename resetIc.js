@@ -21,8 +21,7 @@ function resetIc() {
     imageElement.addEventListener('load', function () {
         // Once the new image is fully loaded, update the src attribute
         imageElement.src = randomFlag;
-    });
-    newInput = document.getElementById("inputBox");
+            newInput = document.getElementById("inputBox");
     newInput.style.display = "none";
     newInput.placeholder = "Which country";
 
@@ -46,4 +45,6 @@ function resetIc() {
     }
 
     updateScore(true);
+    });
+
 }
