@@ -6,12 +6,20 @@ function resetIc() {
         document.getElementById("score").style.display = "none";
         return;
     }
-    let imageElement = document.getElementById("mainImage");
     let randomPair = getRandom();
-    imageElement.src = randomPair.flag;
-    land = randomPair.country;
-    besoekt.delete(randomPair.country);
+    let randomCountry = randomPair.country;
+    let randomFlag = randomPair.flag;
+    besoekt.delete(randomCountry);
 
+    land = randomCountry;
+    
+    let imageElement = document.getElementById("mainImage");
+
+    imageElement.addEventListener('load', function () {
+        // Once the new image is fully loaded, update the src attribute
+        imageElement.src = randomFlag;
+    });
+    
     newInput = document.getElementById("inputBox");
     newInput.style.display = "none";
     newInput.placeholder = "Which country";
