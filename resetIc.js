@@ -21,7 +21,7 @@ function resetIc() {
     let oldSrc = imageElement.src;
 
     // Update the existing image element's attributes with a placeholder or loading image
-    imageElement.src = "w2560/ad.png"; // Replace 'loading.gif' with your actual loading image source
+    imageElement.src = randomFlag; // Replace 'loading.gif' with your actual loading image source
     imageElement.alt = "Another Image";
 
     // Add an event listener to the image to track when it's fully loaded
