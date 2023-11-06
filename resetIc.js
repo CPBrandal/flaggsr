@@ -6,15 +6,15 @@ function resetIc() {
         document.getElementById("score").style.display = "none";
         return;
     }
-    let randomPair = getRandom();
+     let randomPair = getRandom();
     let randomCountry = randomPair.country;
     let randomFlag = randomPair.flag;
     besoekt.delete(randomCountry);
 
     land = randomCountry;
-    
-    let imageElement = document.getElementById("mainImage");
 
+    // Get the existing image element
+    let imageElement = document.getElementById("mainImage");
     let oldsrc = imageElement.src;
     imageElement.src = oldsrc;
 
@@ -22,7 +22,6 @@ function resetIc() {
         // Once the new image is fully loaded, update the src attribute
         imageElement.src = randomFlag;
     });
-    
     newInput = document.getElementById("inputBox");
     newInput.style.display = "none";
     newInput.placeholder = "Which country";
