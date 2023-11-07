@@ -36,7 +36,7 @@ const countryFlagMap = new Map([
     ["Canada", "w2560/ca.png"],
     ["Central African Republic", "w2560/cf.png"],
     ["Chad", "w2560/td.png"],
-    ["Chile", "w2560/ci.png"],
+    ["Chile", "w2560/cl.png"],
     ["China", "w2560/cn.png"],
     ["Colombia", "w2560/co.png"],
     ["Congo", "w2560/cd.png"],
