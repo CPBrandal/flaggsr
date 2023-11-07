@@ -204,7 +204,7 @@ const countryFlagMap = new Map([
     ["Yemen", "w2560/ye.png"],
     ["Zambia", "w2560/zm.png"],
     ["Zimbabwe", "w2560/zw.png"],
-    ["Wales", "w2560/gb-wls-png"]
+    ["Wales", "w2560/gb-wls.png"]
 ]);
 
 const euFlagMap = new Map([ 
