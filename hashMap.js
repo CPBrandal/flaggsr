@@ -252,7 +252,8 @@ const euFlagMap = new Map([
     ["Switzerland", "w2560/ch.png"],
     ["Turkey", "w2560/tr.png"],
     ["Ukraine", "w2560/ua.png"],
-    ["United Kingdom", "w2560/gb.png"],   
+    ["United Kingdom", "w2560/gb.png"],
+    ["Vatican", "w2560/va.png"],
 ]);
 
 const afFlagMap = new Map([
