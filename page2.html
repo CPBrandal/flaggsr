@@ -154,7 +154,7 @@
         function updateScore(bool){
             if(bool === true){
                 let scoreElement = document.getElementById("score");
-                scoreElement.textContent = "Score: " + teller;
+                scoreElement.textContent = "Score: " + Math.round((teller/total-1));
             }
         }
 
