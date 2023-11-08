@@ -154,7 +154,7 @@
         function updateScore(bool) {
             if (bool === true) {
                 let scoreElement = document.getElementById("score");
-                const percentage = Math.round((teller / teller2 - 1) * 100);
+                const percentage = Math.round((teller / (teller2 - 1)) * 100);
                 scoreElement.textContent = "Score: " + percentage + "%";
             }
         }
