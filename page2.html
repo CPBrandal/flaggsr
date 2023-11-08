@@ -34,7 +34,6 @@
 
     <script>
         let land = "";
-        let modul = 0;
         let teller = 0;
         let teller2 = 0;
         let hS = 0;
@@ -67,28 +66,24 @@
                 a.textContent="World";
             }
             else if (buttonPressed === "Europe") {
-                modul = 1;
                 besoekt = new Map(euFlagMap);
                 fullLandListe = new Map(euFlagMap);
                 setRandomInitialImageEu();
                 a.textContent="Europe";
             }
             else if (buttonPressed === "Africa") {
-                modul = 2;
                 besoekt = new Map(afFlagMap);
                 fullLandListe = new Map(afFlagMap);
                 setRandomInitialImageAf();
                 a.textContent="Africa";
             }
             else if (buttonPressed === "Asia") {
-                modul = 3;
                 besoekt = new Map(asFlagMap);
                 fullLandListe = new Map(asFlagMap);
                 setRandomInitialImageAs(); 
                 a.textContent="Asia";
             }
             else if (buttonPressed === "America") {
-                modul = 4;
                 besoekt = new Map(amFlagMap);
                 fullLandListe = new Map(amFlagMap);
                 setRandomInitialImageAm();
