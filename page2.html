@@ -151,12 +151,14 @@
             totAnt.textContent = "Flag: " + teller2 + "/" + total;
         }
 
-        function updateScore(bool){
-            if(bool === true){
+        function updateScore(bool) {
+            if (bool === true) {
                 let scoreElement = document.getElementById("score");
-                scoreElement.textContent = "Score: " + Math.round((teller/teller2-1)*100);
+                const percentage = Math.round((teller / teller2 - 1) * 100);
+                scoreElement.textContent = "Score: " + percentage + "%";
             }
         }
+
 
         function showCongratulationsMessage() {
         // Create a <div> element to hold the message
