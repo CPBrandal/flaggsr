@@ -433,8 +433,10 @@ input[type="text"] {
         color: black;
     }
     #nextButton{
-        bottom: 10%;
-        right: 50%;
+        position: fixed;
+        left: 50%;  /* Center horizontally */
+        transform: translateX(-50%);  /* Center horizontally */
+        bottom: 2/7 * 100vh;
         height: 7vh;
     }
     #tot {
