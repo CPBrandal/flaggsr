@@ -17,6 +17,7 @@ function resetIc(parameter) {
     besoekt.delete(randomCountry);
 
     land = randomCountry;
+
     // Create a new Image element to preload    the image
     let preloadedImage = new Image();
     preloadedImage.src = randomFlag;
@@ -29,6 +30,7 @@ function resetIc(parameter) {
         imageElement.src = preloadedImage.src;
         imageElement.alt = "Another Image";
     };
+    
         newInput = document.getElementById("inputBox");
         if(parameter === "hard"){
             newInput.style.display = "flex";
@@ -37,6 +39,7 @@ function resetIc(parameter) {
         }
         newInput.value = "";
         newInput.placeholder = "Which country";
+        newInput.style.backgroundColor = 'white';
 
         const tall = Math.floor(Math.random() * 4) + 1;
         let liste = new Array();
@@ -56,7 +59,6 @@ function resetIc(parameter) {
                 liste.push(newButton.textContent);
             }
         }
-        newInput.style.backgroundColor = 'white';
         updateTotal();
         updateScore(true);
 }
