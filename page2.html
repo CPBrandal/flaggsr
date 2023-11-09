@@ -246,6 +246,7 @@
     function input(){                
         if (event.key === "Enter") {
             if (this.value.toLowerCase() === land.toLowerCase() || this.value.toLowerCase() === "idontknow") {
+                this.style.backgroundColor = 'lightgreen';
                 window.scrollTo(0, 100);
                 correct.pause();
                 correct.currentTime = 0;
@@ -253,15 +254,19 @@
                 correct.play();
                 scrollTo(top);
             } else {
+                this.style.backgroundColor = 'lightcoral';
                 wrong.pause();
                 wrong.currentTime = 0;
                 wrong.play();
             }
-            updateScore(true);
-            let nextButton = document.createElement("button");
-            nextButton.textContent = "Next";
-            nextButton.style.display = "none";
-            nextButton.addEventListener("click", resetIc("hard"));
+
+            setTimeout(function() {
+                updateScore(true);
+                let nextButton = document.createElement("button");
+                nextButton.textContent = "Next";
+                nextButton.style.display = "none";
+                nextButton.addEventListener("click", resetIc("hard"));
+            }, 150);
         }
     }
      

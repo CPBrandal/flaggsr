@@ -434,7 +434,7 @@ input[type="text"] {
     }
     #nextButton{
         bottom: 10%;
-        right: 35%;
+        right: 50%;
         height: 7vh;
     }
     #tot {
