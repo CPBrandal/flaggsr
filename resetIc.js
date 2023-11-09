@@ -39,7 +39,6 @@ function resetIc(parameter) {
         }
         newInput.value = "";
         newInput.placeholder = "Which country";
-        newInput.style.backgroundColor = 'white';
 
         const tall = Math.floor(Math.random() * 4) + 1;
         let liste = new Array();
