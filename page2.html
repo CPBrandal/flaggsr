@@ -259,15 +259,11 @@
                 wrong.currentTime = 0;
                 wrong.play();
             }
-
-            setTimeout(function() {
-                updateScore(true);
-                let nextButton = document.createElement("button");
-                nextButton.textContent = "Next";
-                nextButton.style.display = "none";
-                nextButton.addEventListener("click", resetIc("hard"));
-            }, 150);
-        }
+            updateScore(true);
+            let nextButton = document.createElement("button");
+            nextButton.textContent = "Next";
+            nextButton.style.display = "none";
+            nextButton.addEventListener("click", resetIc("hard"));
     }
      
     let tellerHarBlittEndret = false;
