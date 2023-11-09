@@ -17,7 +17,6 @@ function resetIc(parameter) {
     besoekt.delete(randomCountry);
 
     land = randomCountry;
-    newInput = document.getElementById("inputBox");
     // Create a new Image element to preload    the image
     let preloadedImage = new Image();
     preloadedImage.src = randomFlag;
@@ -29,9 +28,8 @@ function resetIc(parameter) {
         // Update the existing image element's attributes
         imageElement.src = preloadedImage.src;
         imageElement.alt = "Another Image";
-        newInput.style.backgroundColor = 'white';
     };
-    
+        newInput = document.getElementById("inputBox");
         if(parameter === "hard"){
             newInput.style.display = "flex";
         } else {
@@ -58,6 +56,7 @@ function resetIc(parameter) {
                 liste.push(newButton.textContent);
             }
         }
+        newInput.style.backgroundColor = 'white';
         updateTotal();
         updateScore(true);
 }
